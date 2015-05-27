@@ -1,0 +1,67 @@
+DirectoryIndex index.php
+
+RewriteEngine On
+RewriteRule ^link/([0-9]+)[/]*$ /redirect.php?id=$1
+RewriteRule ^link/([a-zA-Z0-9]+)[/]*$ /redirect.php?tag=$1
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 90.196.127.251
+deny from 90.209.29.54
+deny from 90.208.80.134
+deny from 90.208.80.135
+deny from 92.41.141.141
+deny from 90.196.127.61
+deny from 90.196.127.145
+deny from 92.41.196.125
+deny from 90.196.127.30
+deny from 90.196.127.240
+deny from 92.41.201.122
+deny from 92.41.238.163
+deny from 92.41.216.144
+deny from 89.146.75.27
+deny from 58.111.221.193
+deny from 117.196.231.214
+deny from 117.196.227.27
+deny from 117.196.232.151
+deny from 117.196.225.218
+deny from 117.196.229.98
+deny from 117.196.228.151
+deny from 117.196.232.33
+deny from 117.196.230.246
+deny from 117.196.231.249
+deny from 70.173.192.99
+deny from 24.159.229.35
+deny from 90.196.127.41
+deny from 67.191.47.101
+deny from 96.229.229.228
+deny from 219.251.160.16
+deny from 222.233.141.8
+deny from 219.251.160.8
+deny from 118.216.37.132
+deny from 217.42.233.111
+deny from 86.132.174.79
+deny from 89.142.105.167
+deny from 89.142.228.168
+deny from 89.142.181.170
+deny from 85.120.82.4
+deny from 82.207.114.202
+deny from 122.160.114.173
+deny from 198.54.202.218
+deny from 71.56.198.28
+deny from 174.48.219.141
+deny from 222.233.141.33
+deny from 74.74.75.70
+deny from 67.242.122.73
+deny from 66.232.248.243
+deny from 66.232.254.134
+deny from 66.232.253.74
+deny from 66.232.254.164
+deny from 66.232.254.49
+deny from 66.232.244.198
+deny from 216.255.175.64
+deny from 66.232.245.175
+deny from 66.232.245.65
+deny from 66.232.246.94
