@@ -31,7 +31,10 @@ if($_POST['action'] = "resetbuttons") {
 	   $sql = mysql_query("DELETE FROM loginads where userid='".$_SESSION[uname]."' and id = '".intval($_POST['dell'])."' LIMIT 1");
    }
    
-   
+    if($_POST['deldb']) {
+	   mysql_query("DELETE FROM dailybonus where id='".intval($_POST['deldb'])."' and userid='".$_SESSION[uname]."'");
+   }
+
    if($_POST['delt']) {
 	   $sql = mysql_query("DELETE FROM tlinks where userid='".$_SESSION[uname]."' and id = '".intval($_POST['delt'])."' LIMIT 1");
 	   if(@mysql_num_rows($sql)) mysql_query("DELETE FROM tlviews where tlid='".intval($_POST['delt'])."'");
@@ -882,7 +885,11 @@ if (($hheaderadpointprice > 0) and ($points >= $hheaderadpointprice))
 </form>
           <? }
           ?>
-
+<HR ALIGN= "center" size= 5 WIDTH= 75% COLOR= "#000000" NO SHADE>
+<p><b>Purchase Daily Bonus Navigation Button Banner Link</p></b>
+<p align="center"><span style="background-color: #FFFF00"><b>Only $<? echo $dailybonusprice; ?></b></span></p>
+<p align="center"><a href="<? echo $domain; ?>/members/dailybonus.php"><img src="/images/GetItNow.png" border="0"></a></p>
+</p>
 <HR ALIGN= "center" size= 5 WIDTH= 75% COLOR= "#000000" NO SHADE>
 		
 		

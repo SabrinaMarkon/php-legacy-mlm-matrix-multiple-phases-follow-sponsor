@@ -1702,6 +1702,97 @@ $query3 = "SELECT * FROM footerads where userid='".$_SESSION[uname]."'";
 	          <?
     	} //end ($statstoshow == 1)	
 
+//Daily Bonus Link
+		
+	    $querydaily = "SELECT * FROM dailybonus where userid='".$_SESSION[uname]."'";
+	    $resultdaily = mysql_query ($querydaily)
+	            or die ("Query failed");
+	    $numrowsdaily = @ mysql_num_rows($resultdaily);
+	    if ($numrowsdaily == 0) {
+	        ?>
+	          <p>You currently do not have any daily bonus links in our system.</p>
+	        <?
+	    }
+	    while ($linedaily = mysql_fetch_array($resultdaily)) {
+	        $dbadded = $linedaily["added"];
+	        if ($dbadded == 0) {
+	            $dbtoadd = 1;
+	            $dbcount = $dbcount+1;
+	        } //end if ($dbadded == 0)
+	        else {
+	            $dbstatstoshow = 1;
+	        } // end else
+	    } //end while ($linedaily = mysql_fetch_array($resultdaily))
+	    if ($dbtoadd == 1) {
+	        ?><br>
+	          <p><font color="red"><b>You have <? echo $dbcount; ?> daily bonus links to add. <a href="adddailybonus.php">Click here</a> to set these up now.</b></font></p>
+	        <?
+	    }
+	    if ($dbstatstoshow == 1) {
+	        ?>
+
+			  
+			  
+<br>
+
+	          <p><b>Your daily bonus link statistics</b></p>
+
+	          <CENTER>			  
+			  
+	            <table width=70% border=0 cellpadding=2 cellspacing=2>
+	            <tr>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><center><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">URL</font></center></td>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><center><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">Date</font></center></td>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><center><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">Clicks</font></center></td>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><center><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">Approved</font></center></td>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><center><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">Delete</font></center></td>
+	            </tr>
+	          <?
+	          $resultdailyb = mysql_query ($querydaily)
+	             or die ("Query failed");
+	          while ($linedailyb = mysql_fetch_array($resultdailyb)) {
+	            $url = $linedailyb["url"];
+	            $adid = $linedailyb["id"];
+	            $approved = $linedailyb["approved"];
+	          ?>
+	            <TR>
+	                <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>
+	                    <p><? echo "<a href=\"$url\" target=\"_blank\">$url</a>"; ?></p></font>
+	                </TD>
+	                <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>
+	                  <p><? echo $linedailyb['rented']; ?></p></font>
+	                </TD>
+	                <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>
+	                    <p><? echo $linedailyb['clicks']; ?></p></font>
+	                </TD>
+	                <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>
+	                    <? if ($approved == 1) {
+	                          echo "Yes";
+	                       }
+	                       elseif ($approved == 0) {
+	                          echo "Not yet";
+	                       }
+	                       elseif ($approved == 2) {
+	                          echo "Denied *";
+	                          $addnote = 1;
+	                       }
+	                    ?></font>
+	                </TD>
+					<td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>
+	                    <? 
+						if(date('Y-m-d') > $linedailyb['rented']) echo "campaign completed<form method=\"post\"><input type=\"hidden\" name=\"deldb\" value=\"$adid\"><input type=\"submit\" value=\"Delete\"></form>"; 	
+						?>
+						</font>
+	                </TD>
+	            </TR>
+	          <?
+	          } //end while
+	          ?>
+	            </TABLE>
+	            </CENTER>
+	          <?
+    	} //end ($statstoshow == 1)
+
 echo "<br><br></font></td></tr></table>";
     }
 else

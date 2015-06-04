@@ -36,6 +36,11 @@ input.ssw {
 		<td align="center" valign="top"><input type="submit" value="Matrix Downlines" style="width: 220px">
 		</td></tr>
         </form>
+        <tr>		
+		<form method="POST" action="dailybonussettings.php">
+		<td align="center" valign="top"><input type="submit" value="Daily Bonus"  style="width: 220">
+		</td></tr>
+		</form>
 <tr>
 <form method="GET" action="subscriptions.php">
 <td align="center" valign="top"><input type="submit" value="Member Subscriptions"  style="width: 220px">

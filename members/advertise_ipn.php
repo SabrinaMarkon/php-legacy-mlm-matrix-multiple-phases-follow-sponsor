@@ -72,6 +72,14 @@ if ($payment_status == "Completed" AND $receiver_email == $paypal) {
 					$quantity--;
 				}
 
+			} elseif($item == $sitename." Daily Bonus ".$userid) {
+	
+		$rented = $_POST['option_selection2'];
+		mysql_query("insert into dailybonus (userid,rented) values('$userid','$rented')");
+
+		mysql_query("INSERT INTO transactions VALUES ('id','".$userid."','Paypal payment - Daily Bonus $rented','".time()."','$payment_amount\$')");	
+											
+				
 			} elseif($item == $sitename." Hot Headline Ad ".$userid) {
 			
 				$hheadlineadmaxhits = $_POST['option_selection2'];

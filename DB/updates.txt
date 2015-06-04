@@ -1,0 +1,30 @@
+June 4, 2015 - Sabrina Markon PHPSiteScripts.com
+- Re-installed Daily Bonus Mod Feature:
+
+/admin/addbonus.php
+/admin/adminnavigation.php
+/admin/approveadds.php
+/admin/approvebonus.php
+/admin/dailybonussettings.php
+/admin/deletebonus.php
+/admin/viewallbonus.php
+
+/members/adddailybonus.php
+/members/advertise.php
+/members/advertise_ipn.php
+/members/advertisestats.php
+/members/bonusframe.php
+/members/bonustop.php
+/members/bonustop2.php
+/members/dailybonus.php
+
+/egopay_ipn.php
+/okpay_ipn.php
+/payza_ipn.php
+/perfectmoney_ipn.php
+/solidtrustpay.php
+
+insert into settings (name,setting) values  ('bonusurl', 'http://phpsitescripts.com');
+insert into settings (name,setting) values  ('bonusmin', '1000');
+insert into settings (name,setting) values  ('bonusmax', '2000');
+insert into settings (name,setting) values  ('dailybonusprice', '3.75');

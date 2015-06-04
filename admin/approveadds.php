@@ -226,6 +226,51 @@ $query = "select * from buttons where status=0 and added=1";
 	        echo '</table><input type="button" onClick="return Inverse(document.button);" value="Inverse"><input type="submit" name="submit" value="Approve"><input type="submit" name="submit" value="Delete"></form></center>';
         }
 
+$query3 = "select * from dailybonus where approved=0 and added=1";
+		$result3 = mysql_query ($query3)
+	     	or die ("Query failed");
+        $numrows3 = @ mysql_num_rows($result3);
+        if ($numrows3 == 0) {
+        	echo "<p><center>No daily bonus links awaiting approval.</p></center>";
+        }
+        else {
+            echo "<p><center>List of daily bonus links awaiting approval.</p>";
+	        ?>
+	            <form action="approvebonus.php" method=POST name=bonus>
+	            <table width=70% border=0 cellpadding=2 cellspacing=2>
+	            <tr>
+				<td bgcolor="<? echo $contrastcolour; ?>">&nbsp;</td>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>Userid</font></center></td>
+				  <td bgcolor="<? echo $contrastcolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>URL</font></center></td>
+				  <td bgcolor="<? echo $contrastcolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>Date</font></center></td>
+	              <td bgcolor="<? echo $contrastcolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center>Approve</font></center></td>
+	            </tr>
+	        <?
+	        while ($line3 = mysql_fetch_array($result3)) {
+	            $id = $line3["id"];
+	            $userid = $line3["userid"];
+                $date = $line3["rented"];
+	            $url = $line3["url"];
+
+	        ?><tr>
+			<td bgcolor="<? echo $basecolour; ?>"><input type="checkbox" name="id[]" value="<? echo $id; ?>"></td>
+	          
+			  <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center><a href="memberlogin.php?userid=<? echo $userid; ?>"><? echo $userid; ?></a></center></td>
+
+			  <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center><a href="sitecheck.php?url=<? echo $url; ?>" target="_blank"><? echo $url; ?></a></font></center></td>
+			  <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center><? echo $date; ?></font></center></td>
+			  
+	          <td bgcolor="<? echo $basecolour; ?>"><font size=2 face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>"><center><br>
+
+			  <a href="email.php?Member=<? echo $userid; ?>" target="_blank">Email user</a>
+			  
+			  </center>
+	          </td></tr> <?
+	        }
+	        echo '</table><input type="button" onClick="return Inverse(document.bonus);" value="Inverse"><input type="submit" name="submit" value="Approve"><input type="submit" name="submit" value="Delete"></form></center>';
+        }	
+
+
 $query3 = "select * from hotlinks where approved=0 and added=1 order by date ASC";
         $result3 = mysql_query ($query3)
             or die ("Query failed");

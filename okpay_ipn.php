@@ -348,6 +348,16 @@ mysql_query("INSERT INTO transactions VALUES ('id', '".$userid."','OKPay payment
 					mysql_query("INSERT INTO `solos` (`id` ,`userid` ,`approved` ,`subject` ,`adbody` ,`sent` ,`added`) VALUES (NULL , '".$userid."', '0', '', '', '0', '0')");
 
 
+			} elseif($item == $sitename." Daily Bonus ".$userid) {
+			
+				$rented = $_POST['apc_2'];
+				mysql_query("insert into dailybonus (userid,rented) values('$userid','$rented')");
+
+				mysql_query("INSERT INTO transactions VALUES ('id','".$userid."','OKPay payment - Daily Bonus $rented','".time()."','$amount\$')");	
+				
+										
+				
+
 			} elseif($item == $sitename." Banner Impressions ".$userid) {
 				mysql_query("INSERT INTO transactions VALUES ('id', '".$userid."','OKPay payment - Banner Impressions','".time()."','$amount')");
 				

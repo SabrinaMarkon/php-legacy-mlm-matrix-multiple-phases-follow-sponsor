@@ -307,6 +307,16 @@ mysql_query("INSERT INTO transactions VALUES ('id', '".$userid."','Perfect Money
 					mysql_query("INSERT INTO `banners` ( `id` , `name` , `bannerurl` , `targeturl` , `userid` , `status` , `shown` , `clicks` , `max` , `added` )VALUES (NULL , '', '', '', '".$userid."', '0', '0', '0', '1000', '0')");
 
 				
+			} elseif($item == $sitename." Daily Bonus ".$userid) {
+			
+				$rented = $_POST['apc_2'];
+				mysql_query("insert into dailybonus (userid,rented) values('$userid','$rented')");
+
+				mysql_query("INSERT INTO transactions VALUES ('id','".$userid."','Perfect Money payment - Daily Bonus $rented','".time()."','$amount\$')");	
+				
+										
+				
+
 			} elseif($item == $sitename." Button Ad ".$userid) {
 
 
