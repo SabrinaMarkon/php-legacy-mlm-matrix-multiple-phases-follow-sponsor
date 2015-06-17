@@ -34,11 +34,11 @@ if( session_is_registered("alogin") ) {
 		     or die ("Query failed");
 	    $num_rows = @mysql_num_rows($result);
 	
-	} elseif($_POST['memtype']) {
-		$memtype = $_POST['memtype'];
-		if (is_array($memtype))
+	} elseif($_POST['mtype']) {
+		$mtype = $_POST['mtype'];
+		if (is_array($mtype))
 		{
-		foreach ($memtype as $membershiplevel)
+		foreach ($mtype as $membershiplevel)
 		{
 		$howmany = 0;
 	    $query = "SELECT distinct userid, name, pword, contact_email FROM members where status=1 and vacation=0 and memtype = '$membershiplevel'";
@@ -50,13 +50,13 @@ if( session_is_registered("alogin") ) {
 		}
 		else
 		{
-	    $query = "SELECT distinct userid, name, pword, contact_email FROM members where status=1 and vacation=0 and memtype = '$memtype'";
+	    $query = "SELECT distinct userid, name, pword, contact_email FROM members where status=1 and vacation=0 and memtype = '$mtype'";
 		$result = mysql_query ($query) or die(mysql_error());
 	    $num_rows = mysql_num_rows($result);
-		echo "Sending to all ".$memtype." members...<br>";
+		echo "Sending to all ".$mtype." members...<br>";
 		}
 	} else {
-		echo "Sending to all active members. Please be patient...";
+		echo "Sending to all active members. Please be patient...<br><br>";
 	    $query = "SELECT distinct userid, name, pword, contact_email FROM members where status=1 and vacation=0";
 		$result = mysql_query ($query)
 		     or die ("Query failed");
@@ -89,12 +89,12 @@ if( session_is_registered("alogin") ) {
 
         //replace the merge fields.
         $Subject = stripslashes($Subject);
-	$Subject = str_replace("~userid~",$userid,$Subject);
+		$Subject = str_replace("~userid~",$userid,$Subject);
         $Subject = str_replace("~name~",$name,$Subject);
         $Subject = str_replace("~password~",$password,$Subject);
 
         $Message = stripslashes($Message);
-	$Message = str_replace("~userid~",$userid,$Message);
+		$Message = str_replace("~userid~",$userid,$Message);
         $Message = str_replace("~name~",$name,$Message);
         $Message = str_replace("~password~",$password,$Message);
         $Message = str_replace("~email~",$contactemail,$Message);
@@ -108,14 +108,14 @@ if( session_is_registered("alogin") ) {
 		
 		$Message = "*********************<br>As a valued member of $sitename.<br> You have agreed to receive contact from us.<br> If you no longer want our messages, follow the instructions at the bottom.<br>*********************<br><br>".$Message."<br><br>*********************<br>".$htmlcode."<br>*********************<br>You are receiving this as you are a member of $sitename.<br> You can opt out of receiving emails only by deleting your account.<br>Please click below to delete your account.<br><br><a href=\"$domain/delete.php?userid=$userid&code=".md5($password)."\">$domain/delete.php?userid=$userid&code=".md5($password)."</a><br><br>$adminname - Admin<br>$sitename<br>$adminemail";
 
-        $headers .= "From: $sitename<$adminemail>\n";
-		$headers .= "Reply-To: <$adminemail>\n";
-		$headers .= "X-Sender: <$adminemail>\n";
-		$headers .= "X-Mailer: PHP4\n";
-		$headers .= "X-Priority: 3\n";
-		$headers .= "Return-Path: <$adminemail>\nContent-type: text/html; charset=iso-8859-1\n";
-
-		mail($contactemail, $Subject, $Message,$headers)or print "Failed to send email.";
+		$headers = "From: $sitename<$adminemail>\n";
+        $headers .= "Reply-To: <$adminemail>\n";
+        $headers .= "X-Sender: <$adminemail>\n";
+        $headers .= "X-Mailer: PHP4\n";
+        $headers .= "X-Priority: 3\n";
+        $headers .= "Return-Path: <$adminemail>\nContent-type: text/html; charset=iso-8859-1\n";
+		@mail($contactemail, $Subject, wordwrap(stripslashes($Message)),$headers);
+		echo "Message sent to $userid at $contactemail<br>";
 	}
 
     echo "<br><br><center><b>Message sent to $num_rows members.</b></center>";

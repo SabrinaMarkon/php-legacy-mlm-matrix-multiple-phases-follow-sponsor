@@ -77,7 +77,7 @@ if( session_is_registered("alogin") ) {
 	Members that joined on or after that date (YYYY-MM-DD):<br><input type="text" name="ADate" value=""><br>
 	Specific member:<br><input type="text" name="Member" value="<? echo $_GET['Member']; ?>">
 	<br>
-	<input type="checkbox" name="memtype[]" value="PRO"> <?php echo $lowerlevel ?> members <input type="checkbox" name="memtype[]" value="JV Member"> <?php echo $middlelevel ?> members <input type="checkbox" name="memtype[]" value="SUPER JV"> <?php echo $toplevel ?> members
+	<input type="checkbox" name="mtype[]" value="PRO"> <?php echo $lowerlevel ?> members <input type="checkbox" name="mtype[]" value="JV Member"> <?php echo $middlelevel ?> members <input type="checkbox" name="mtype[]" value="SUPER JV"> <?php echo $toplevel ?> members
 	<br><br>
 	Subject:<br><input type="text" name="Subject" value=""><br>
 	Message:<br><textarea name="Message" rows="15" cols="40"></textarea><br>
