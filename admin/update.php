@@ -479,7 +479,7 @@ if ($traffic_num > 0)
 	}
 $tq5 = "insert into monthly_transactions values ('id','$mbuserid','$mbmemtype Monthly Bonus - $traffic_views trafficlink views','".time()."','$traffic_num')";
 $tr5 = mysql_query($tq5);
-} # if ($trafficlink_num > 0)
+} # if ($traffic_num > 0)
 ############################################
 ## PTC BONUS
 $i = "";

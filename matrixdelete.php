@@ -1,11 +1,4 @@
 <?php
-$key = "http://demomatrixmpcf.phpsitescripts.com";
-$key2 = "http://www.demomatrixmpcf.phpsitescripts.com";
-if (($domain != $key) and ($domain != $key2))
-{
-echo "The script you are trying to run isn't licensed. Please contact <a href=\"mailto:sabrina@phpsitescripts.com\">Sabrina Markon, PHPSiteScripts.com</a> to purchase a licensed copy.</a>";
-exit;
-}
 ########################################################################
 if ($hasreferrals != "yes")
 {

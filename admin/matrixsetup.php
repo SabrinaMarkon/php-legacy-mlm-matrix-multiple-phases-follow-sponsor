@@ -1,13 +1,6 @@
 <?php
 session_start();
 include "../config.php";
-$key = "http://demomatrixmpcf.phpsitescripts.com";
-$key2 = "http://www.demomatrixmpcf.phpsitescripts.com";
-if (($domain != $key) and ($domain != $key2))
-{
-echo "The script you are trying to run isn't licensed. Please contact <a href=\"mailto:sabrina@phpsitescripts.com\">Sabrina Markon, PHPSiteScripts.com</a> to purchase a licensed copy.</a>";
-exit;
-}
 include "../header.php";
 include "../style.php";
 ?>
@@ -410,7 +403,7 @@ if ($mrows < 1)
 if ($mrows > 0)
 {
 ?>
-<tr bgcolor="#eeeeee"><td align="center"><b>Phase/Level</b></td><td align="center"><b>Name</b></td><td align="center"><b>Matrix</b></td><td align="center"><b>Position Price</b></td><td align="center"><b>Total Cycle Earnings Deposited to Member Account</b></td><td align="center"><b>Sponsor Bonus Earnings For Referral Cycle</b></td><td align="center"><b>Earnings Used For Entry Into Next Phase (0.00 to disable)</b></td><td align="center"><b>When Cycling, Give Re-Entry into This Phase</b></td><td align="center"><b>Currently Active</b></td><td align="center"><b>Save</b></td><td align="center"><b>Compress</b></td><td align="center"><b>Reset (starts over with no positions)</b></td><td align="center"><b>Delete (completely removes)</b></td></tr>
+<tr bgcolor="#eeeeee"><td align="center"><b>Phase/Level</b></td><td align="center"><b>Name</b></td><td align="center"><b>Matrix</b></td><td align="center"><b>Position Price</b></td><td align="center"><b>Total Cycle Earnings Deposited to Member Account</b></td><td align="center"><b>Sponsor Bonus Earnings For Referral Cycle</b></td><td align="center"><b>When Cycling, Give Re-Entry into This Phase</b></td><td align="center"><b>Currently Active</b></td><td align="center"><b>Save</b></td><td align="center"><b>Compress</b></td><td align="center"><b>Reset (starts over with no positions)</b></td><td align="center"><b>Delete (completely removes)</b></td></tr>
 <?php
 	$matrixlevel = 0;
 	$bg = 0;

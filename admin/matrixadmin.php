@@ -1,13 +1,6 @@
 <?php
 session_start();
 include "../config.php";
-$key = "http://demomatrixmpcf.phpsitescripts.com";
-$key2 = "http://www.demomatrixmpcf.phpsitescripts.com";
-if (($domain != $key) and ($domain != $key2))
-{
-echo "The script you are trying to run isn't licensed. Please contact <a href=\"mailto:sabrina@phpsitescripts.com\">Sabrina Markon, PHPSiteScripts.com</a> to purchase a licensed copy.</a>";
-exit;
-}
 function formatDate($val) {
 	$arr = explode("-", $val);
 	return date("M d Y", mktime(0,0,0, $arr[1], $arr[2], $arr[0]));

@@ -35,10 +35,10 @@ Cookies Must Be Enabled To Use This Site<p align="center">
 
 	      	<FORM style="border: 0px dotted red; padding: 2px" method="POST" action="login.php">
 					        Username:<br>
-            <input type="text" name="userid" value="demomember">
+            <input type="text" name="userid" value="">
 <br>Password:<br></font>
             <font size="2" face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">
-            	<font color="#000000"><font face="Verdana"><input type="password" name="password" value="demopass"></font><font size="2" color="<? echo $fontcolour; ?>"><br>
+            	<font color="#000000"><font face="Verdana"><input type="password" name="password" value=""></font><font size="2" color="<? echo $fontcolour; ?>"><br>
             </font>
             <font size="2" face="<? echo $fonttype; ?>" color="<? echo $fontcolour; ?>">
 	      	<input type="submit" name="login" value="Login">

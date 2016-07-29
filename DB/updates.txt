@@ -28,3 +28,8 @@ insert into settings (name,setting) values  ('bonusurl', 'http://phpsitescripts.
 insert into settings (name,setting) values  ('bonusmin', '1000');
 insert into settings (name,setting) values  ('bonusmax', '2000');
 insert into settings (name,setting) values  ('dailybonusprice', '3.75');
+
+July 28, 2016
+- removed old sales form and demomember values from index.php
+- fixed extra column in matrixsetup.php
+

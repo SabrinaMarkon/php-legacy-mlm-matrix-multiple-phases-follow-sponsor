@@ -7,6 +7,7 @@ include "../style.php";
 $userid = $_POST['userid'];
 $memtype = $_POST['memtype'];
 $givematrixposition =  $_POST['givematrixposition'];
+
 if( session_is_registered("alogin") ) {
 
     	?><table>
@@ -18,10 +19,13 @@ if( session_is_registered("alogin") ) {
     	echo "<font size=2 face='$fonttype' color='$fontcolour'><p><b><center>";
 
 	       if ($memtype == "SUPER JV") {
+
+
+            	
+
+
 				upgrade_superjv($userid);
-	        } elseif ($memtype == "JV MEMBER") {
-				upgrade_jv($userid);  
-	        }
+
 
 if ($givematrixposition > 0)
 {
@@ -45,7 +49,27 @@ $matrixsequence = mysql_result($mr,0,"matrixsequence");
 MatrixAdd($userid,$matrixlevelname,$matrixwidth,$matrixdepth,$matrixprice,$matrixpayout,$givereentrythislevel,$matrixsequence,$matrixid,$cyclecommissionforsponsor);
 }
 }
-echo $userid." has been upgraded successfully.";
+
+                echo $userid." has been upgraded successfully.";
+
+
+	        } elseif ($memtype == "JV MEMBER") {
+
+
+            	
+
+
+				upgrade_jv($userid);
+
+
+				
+
+
+                echo $userid." has been upgraded successfully.";
+
+
+	        }
+
 
             else {
 

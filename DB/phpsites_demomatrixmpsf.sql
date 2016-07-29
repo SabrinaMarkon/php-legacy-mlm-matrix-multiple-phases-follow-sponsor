@@ -1271,6 +1271,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` (`id`, `name`, `contact_email`, `subscribed_email`, `paypal_email`, `payza_email`, `egopay_account`, `perfectmoney_account`, `okpay_account`, `solidtrustpay_account`, `moneybookers_email`, `pword`, `userid`, `status`, `referid`, `verified`, `solos`, `points`, `commission`, `ip`, `joindate`, `subscribed`, `memtype`, `confirmed`, `vacation`, `vacation_date`, `referrer`, `lastlogin`, `traffic_clicks`, `solo_clicks`, `textad_clicks`, `super_clicks`, `super_clicks1`, `lastname`, `upgrade_points`, `banner_clicks`, `button_clicks`, `hotlink_clicks`, `htmlad_clicks`, `traffic1_clicks`, `solo1_clicks`, `textad1_clicks`, `banner1_clicks`, `button1_clicks`, `hotlink1_clicks`, `htmlad1_clicks`, `propoints`, `navtop_clicks`, `navbot_clicks`, `powersolo_clicks`, `ptc_clicks`, `navtop1_clicks`, `navbot1_clicks`, `powersolo1_clicks`, `ptc1_clicks`, `lastfullloginadseen`, `lastsolopost`, `surfcredits`, `surf_clicks`, `surf1_clicks`, `surf_last_id`, `tickets`, `sitessurfedtoday`, `surfratiocounter`, `totalsitessurfedever`, `sitessurfedforcontest`, `lastmonthlybonus`, `nextmonthlybonus`, `hheaderad_clicks`, `hheadlinead_clicks`, `hheaderad_clicks1`, `hheadlinead_clicks1`, `country`, `bonus_viewed`) VALUES (1,'Sabrina','webmaster@pearlsofwealth.com','webmaster@pearlsofwealth.com','','','','','','','','demopass','demomember',1,'admin',1,1,1000,0,'68.146.236.220','2014-09-09','0000-00-00','JV Member','2014-09-09',0,0,'http://demomatrixmpcf.phpsitescripts.com/memberlogin.php?referid=admin','2015-04-29',0,0,0,0,0,'Markon',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,'','2014-09-08',1000,0,0,0,0,0,0,0,0,'2014-09-09 23:44:12','2014-10-09 23:44:12',0,0,0,0,'Canada',0);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1326,6 +1327,8 @@ CREATE TABLE `monthlybonusesjv` (
   `button_views` int(10) unsigned NOT NULL DEFAULT '0',
   `ptc_num` int(10) unsigned NOT NULL DEFAULT '0',
   `ptc_views` int(10) unsigned NOT NULL DEFAULT '0',
+  `trafficlink_num` int(10) unsigned NOT NULL DEFAULT '0',
+  `trafficlink_views` int(10) unsigned NOT NULL DEFAULT '0',
   `topnav_num` int(10) unsigned NOT NULL DEFAULT '0',
   `botnav_num` int(10) unsigned NOT NULL DEFAULT '0',
   `featuredad_num` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1376,6 +1379,8 @@ CREATE TABLE `monthlybonusespro` (
   `button_views` int(10) unsigned NOT NULL DEFAULT '0',
   `ptc_num` int(10) unsigned NOT NULL DEFAULT '0',
   `ptc_views` int(10) unsigned NOT NULL DEFAULT '0',
+  `trafficlink_num` int(10) unsigned NOT NULL DEFAULT '0',
+  `trafficlink_views` int(10) unsigned NOT NULL DEFAULT '0',
   `topnav_num` int(10) unsigned NOT NULL DEFAULT '0',
   `botnav_num` int(10) unsigned NOT NULL DEFAULT '0',
   `featuredad_num` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1426,6 +1431,8 @@ CREATE TABLE `monthlybonusessuperjv` (
   `button_views` int(10) unsigned NOT NULL DEFAULT '0',
   `ptc_num` int(10) unsigned NOT NULL DEFAULT '0',
   `ptc_views` int(10) unsigned NOT NULL DEFAULT '0',
+  `trafficlink_num` int(10) unsigned NOT NULL DEFAULT '0',
+  `trafficlink_views` int(10) unsigned NOT NULL DEFAULT '0',
   `topnav_num` int(10) unsigned NOT NULL DEFAULT '0',
   `botnav_num` int(10) unsigned NOT NULL DEFAULT '0',
   `featuredad_num` int(10) unsigned NOT NULL DEFAULT '0',
